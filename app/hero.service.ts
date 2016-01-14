@@ -1,4 +1,5 @@
-import {HEROES} from './mock-heroes'
+import {HEROES} from './mock-heroes';
+import {Hero} from './hero';
 import {Injectable} from 'angular2/core';
 
 @Injectable()
@@ -6,5 +7,9 @@ import {Injectable} from 'angular2/core';
 export class HeroService {
 	getHeroes() {
 		return Promise.resolve(HEROES);
+	}
+
+	getHeroSlowly() {
+		return new Promise<Hero[]>(resolve => setTimeout(()=>resolve(HEROES), 2000));
 	}
 }

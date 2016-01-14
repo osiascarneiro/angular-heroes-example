@@ -9,7 +9,7 @@ System.register(['angular2/core', './hero-detail.component', './hero.service'], 
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, hero_detail_component_1, hero_service_1;
-    var AppComponent, HEROES;
+    var AppComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -26,18 +26,13 @@ System.register(['angular2/core', './hero-detail.component', './hero.service'], 
                 function AppComponent(_heroService) {
                     this._heroService = _heroService;
                     this.title = 'Tour of heroes';
-                    this.heroes = HEROES;
-                    this.hero = {
-                        id: 1,
-                        name: 'Windstorm'
-                    };
                 }
                 AppComponent.prototype.ngOnInit = function () {
                     this.getHeroes();
                 };
                 AppComponent.prototype.getHeroes = function () {
                     var _this = this;
-                    this._heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
+                    this._heroService.getHeroSlowly().then(function (heroes) { return _this.heroes = heroes; });
                 };
                 AppComponent.prototype.onSelect = function (hero) {
                     this.selectedHero = hero;
